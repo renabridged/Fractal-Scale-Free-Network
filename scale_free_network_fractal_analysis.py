@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# In[10]:
 
 
 #!/usr/bin/env python
@@ -489,9 +489,3 @@ class ScaleFreeNetwork:
     def sigma_gamma(self, gamma, sigma_gamma, fd, sigma_fd):
         
         return (1/((gamma-1)**2))*(np.sqrt(((gamma-1)**2)*sigma_fd**2+(fd**2)*(sigma_gamma**2)))
-
-
-# In[ ]:
-
-
-
