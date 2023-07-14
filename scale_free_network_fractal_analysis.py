@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[9]:
 
 
 #!/usr/bin/env python
@@ -102,9 +102,9 @@ class SoneiraPeebles:
 
 
 class FractalDimension:
-    """ Uma classe para calcular a dimensão fractal de uma conjunto de pontos com
+    """ Uma classe para calcular a dimensão fractal de uma conjunto de pontos com 
         coordenadas normalizada entre 0 e 1 usando o método box-counting.
-       
+        
         Atributos
         ----------
         
@@ -116,7 +116,7 @@ class FractalDimension:
             no intervalo 0 < x, y < 1. 
         box : tuple
             Uma tupla com as dimensões das caixas, por exemplo: (xmin, xmax, ymin, ymax).
-
+            
         Métodos
         --------
 
@@ -242,55 +242,53 @@ class FractalDimension:
 
 
 class ScaleFreeNetwork:
-     """ Uma classe para geral uma rede livre de escala usando dois métodos: 1) a probabilidade 
-         de ligação entre os nós e dado por "p(ki) = ki / sum kj" onde ki é o grau do nó i e sum kj é a soma
-         de todos os graus da rede. 2) "1/ dij**(df)" one d é a distância euclidiana entre os nós i e j, enquanto
-         que df é a dimensão fractal do fractal estimada pelo método box-counting.
-         .
+    """ Uma classe para geral uma rede livre de escala usando dois métodos: 1) a probabilidade 
+        de ligação entre os nós e dado por "p(ki) = ki / sum kj" onde ki é o grau do nó i e sum kj é a soma
+        de todos os graus da rede. 2) "1/ dij**(df)" one d é a distância euclidiana entre os nós i e j, enquanto
+        que df é a dimensão fractal do fractal estimada pelo método box-counting.
        
-         Atributos
-         ----------
+        Atributos
+        ----------
         
-         coords : tuple
-             Uma tupla com para os pares ordenados para abcissa e a ordenada dos pontos
-         scales : list
-             Uma lista com as escalas das caixa para calcular a dimensão fractal, 
-             por exemplo "scales = [0.001, 0.002, ...]". As escalas devem ser construidas
-             no intervalo 0 < x, y < 1. 
-         box : tuple
-             Uma tupla com as dimensões das caixas, por exemplo: (xmin, xmax, ymin, ymax).
+        coords : tuple
+            Uma tupla com para os pares ordenados para abcissa e a ordenada dos pontos
+        scales : list
+            Uma lista com as escalas das caixa para calcular a dimensão fractal, 
+            por exemplo "scales = [0.001, 0.002, ...]". As escalas devem ser construidas
+            no intervalo 0 < x, y < 1. 
+        box : tuple
+            Uma tupla com as dimensões das caixas, por exemplo: (xmin, xmax, ymin, ymax).
 
-         Métodos
-         --------
+        Métodos
+        --------
 
-         generate_network()
-             Plota os pontos do fractal.
+        generate_network()
+            Plota os pontos do fractal.
 
-         connect_network_with_degree_probability(xs, ys, lamb, eta)
-             Estima a dimensão fractal usando o método box-counting.
+        connect_network_with_degree_probability(xs, ys, lamb, eta)
+            Estima a dimensão fractal usando o método box-counting.
              
-         connect_network_with_fractal_dimension()
-             Estima a dimensão fractal usando o método box-counting.
+        connect_network_with_fractal_dimension()
+            Estima a dimensão fractal usando o método box-counting.
              
-         plot_scale_free_network()
-             Plota os pontos do fractal.
+        plot_scale_free_network()
+            Plota os pontos do fractal.
              
-         probability_distribution_data()
-             calcula os graus e a probabilidade 
+        probability_distribution_data()
+            calcula os graus e a probabilidade 
 
-         fit_probability_distribution(degree, probability, var_x, var_y, figsize)
-             Retorna o melhor fit dos dados.
+        fit_probability_distribution(degree, probability, var_x, var_y, figsize)
+            Retorna o melhor fit dos dados.
         
-         sigma_gamma(gamma, sigma_gamma, fd, sigma_fd)
-             Retorna a incerteza da dimensão fractal de grau a partir dos valores: gamma (expoente de escala),
-             sigma_gamma (incerteza padrão de gamma), df (dimensão fractal dos pontos obtidos 
-             pelo método box-counting), sigma_df (incerteza padrão de df), usando propagração de erros a partir
-             da fórmula "gamma = 1 + df/dk", onde dk é a dimensão fractal de grau.
-        
-         """
+        sigma_gamma(gamma, sigma_gamma, fd, sigma_fd)
+            Retorna a incerteza da dimensão fractal de grau a partir dos valores: gamma (expoente de escala),
+            sigma_gamma (incerteza padrão de gamma), df (dimensão fractal dos pontos obtidos 
+            pelo método box-counting), sigma_df (incerteza padrão de df), usando propagração de erros a partir
+            da fórmula "gamma = 1 + df/dk", onde dk é a dimensão fractal de grau.
+            
+        """
     
     def __init__(self, dict_nodes_pos):
-        
         self.dict_nodes_pos = dict_nodes_pos
         
     def generate_network(self):
@@ -491,4 +489,9 @@ class ScaleFreeNetwork:
     def sigma_gamma(self, gamma, sigma_gamma, fd, sigma_fd):
         
         return (1/((gamma-1)**2))*(np.sqrt(((gamma-1)**2)*sigma_fd**2+(fd**2)*(sigma_gamma**2)))
+
+
+# In[ ]:
+
+
 
