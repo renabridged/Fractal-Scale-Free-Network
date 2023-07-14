@@ -451,7 +451,7 @@ class ScaleFreeNetwork:
 
         prob = [k/len(degree) for k in degree_cont]
         
-        return degree, prob
+        return degree_set, prob
 
     def fit_probability_distribution(self, degree, probability, var_x, var_y, figsize):
 
